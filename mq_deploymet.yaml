@@ -19,12 +19,10 @@ spec:
         - containerPort: 1414
           name: listener
         - containerPort: 9158
-          name: monitoring
-        env:
-        - name: LICENSE
-          value: "accept"
-        - name: MQ_QMGR_NAME
-          value: "ORANGE"          
+          name: monitoring    
         livenessProbe:
           tcpSocket:
             port: 1414
+        envFrom:
+          - configMapRef:
+              name: mq-config

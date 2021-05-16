@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ibmmq
+spec:
+  selector:
+    app: ibmmq
+  ports:
+  - port: 1414
+    targetPort: listener
+    name: listener
+  - port: 9158
+    targetPort: monitoring
+    name: monitoring
